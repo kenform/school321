@@ -104,8 +104,9 @@ h6 {
   font-size: inherit;
 }
 
-.no-webp body{
-  background: url("../img/bg.jpg") repeat center/cover; }
+body {
+  background: url("../img/bg.jpg") repeat center/cover;
+}
 
 .lock body {
   overflow: hidden;
@@ -1028,6 +1029,39 @@ input:-webkit-autofill:active {
 
 .breadcrumbs li > a:hover {
   text-decoration: underline;
+}
+
+.organ-main__item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 50px;
+  border-radius: 10px;
+  background: rgba(255, 202, 55, 0.6862745098);
+}
+
+.organ-main__item:not(:last-child) {
+  margin-bottom: 10px;
+}
+
+.organ-main__item img {
+  border-radius: 10px;
+}
+
+.item-organ__image {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 25.641025641%;
+          flex: 0 0 25.641025641%;
+  padding-bottom: 30%;
+}
+
+.item-organ__text {
+  color: #000;
+  text-align: left;
+  margin: 0 auto;
 }
 
 .swiper {
@@ -2762,5 +2796,3 @@ button.swiper-pagination-bullet {
     cursor: default;
   }
 }
-
-.webp body{ background: url(../img/bg.webp) repeat center/cover; }
