@@ -491,8 +491,11 @@ body::after {
   text-align: center;
 }
 
-.black-purple {
+.underline {
   text-decoration: underline;
+}
+
+.black-purple {
   color: #901c5d;
 }
 
@@ -503,6 +506,27 @@ body::after {
 
 .cursor {
   cursor: pointer;
+}
+
+.square {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding-left: 20px;
+}
+
+.square::before {
+  content: "";
+  width: 10px;
+  height: 10px;
+  display: block;
+  left: -5px;
+  position: absolute;
+  background-color: #901c5d;
 }
 
 .header {
@@ -1928,19 +1952,19 @@ button.swiper-pagination-bullet {
   }
 
   .header {
-    padding-top: 1.25rem;
+    padding-top: 0.9375rem;
   }
 
   .header {
-    padding-bottom: 1.25rem;
+    padding-bottom: 0.9375rem;
   }
 
   .header__logo img {
-    width: 5.625rem;
+    width: 4.375rem;
   }
 
   .header__logo img {
-    heigth: 5.625rem;
+    heigth: 4.375rem;
   }
 
   .header__main-text {
@@ -2052,11 +2076,11 @@ button.swiper-pagination-bullet {
   }
 
   .header__logo img {
-    width: 4.375rem;
+    width: 3.125rem;
   }
 
   .header__logo img {
-    heigth: 4.375rem;
+    heigth: 3.125rem;
   }
 
   .header__main-text {
@@ -2463,51 +2487,51 @@ button.swiper-pagination-bullet {
     }
 }
 
-@supports (padding-top: clamp( 0.625rem , 0.37899754rem  +  1.2300123001vw , 1.25rem )) {
+@supports (padding-top: clamp( 0.625rem , 0.50199877rem  +  0.6150061501vw , 0.9375rem )) {
     .header {
-      padding-top: clamp( 0.625rem , 0.37899754rem  +  1.2300123001vw , 1.25rem );
+      padding-top: clamp( 0.625rem , 0.50199877rem  +  0.6150061501vw , 0.9375rem );
     }
 }
 
-@supports not (padding-top: clamp( 0.625rem , 0.37899754rem  +  1.2300123001vw , 1.25rem )) {
+@supports not (padding-top: clamp( 0.625rem , 0.50199877rem  +  0.6150061501vw , 0.9375rem )) {
     .header {
-      padding-top: calc(0.625rem + 0.625 * (100vw - 20rem) / 50.8125);
+      padding-top: calc(0.625rem + 0.3125 * (100vw - 20rem) / 50.8125);
     }
 }
 
-@supports (padding-bottom: clamp( 0.625rem , 0.37899754rem  +  1.2300123001vw , 1.25rem )) {
+@supports (padding-bottom: clamp( 0.625rem , 0.50199877rem  +  0.6150061501vw , 0.9375rem )) {
     .header {
-      padding-bottom: clamp( 0.625rem , 0.37899754rem  +  1.2300123001vw , 1.25rem );
+      padding-bottom: clamp( 0.625rem , 0.50199877rem  +  0.6150061501vw , 0.9375rem );
     }
 }
 
-@supports not (padding-bottom: clamp( 0.625rem , 0.37899754rem  +  1.2300123001vw , 1.25rem )) {
+@supports not (padding-bottom: clamp( 0.625rem , 0.50199877rem  +  0.6150061501vw , 0.9375rem )) {
     .header {
-      padding-bottom: calc(0.625rem + 0.625 * (100vw - 20rem) / 50.8125);
+      padding-bottom: calc(0.625rem + 0.3125 * (100vw - 20rem) / 50.8125);
     }
 }
 
-@supports (width: clamp( 4.375rem , 3.88299508rem  +  2.4600246002vw , 5.625rem )) {
+@supports (width: clamp( 3.125rem , 2.63299508rem  +  2.4600246002vw , 4.375rem )) {
     .header__logo img {
-      width: clamp( 4.375rem , 3.88299508rem  +  2.4600246002vw , 5.625rem );
+      width: clamp( 3.125rem , 2.63299508rem  +  2.4600246002vw , 4.375rem );
     }
 }
 
-@supports not (width: clamp( 4.375rem , 3.88299508rem  +  2.4600246002vw , 5.625rem )) {
+@supports not (width: clamp( 3.125rem , 2.63299508rem  +  2.4600246002vw , 4.375rem )) {
     .header__logo img {
-      width: calc(4.375rem + 1.25 * (100vw - 20rem) / 50.8125);
+      width: calc(3.125rem + 1.25 * (100vw - 20rem) / 50.8125);
     }
 }
 
-@supports (heigth: clamp( 4.375rem , 3.88299508rem  +  2.4600246002vw , 5.625rem )) {
+@supports (heigth: clamp( 3.125rem , 2.63299508rem  +  2.4600246002vw , 4.375rem )) {
     .header__logo img {
-      heigth: clamp( 4.375rem , 3.88299508rem  +  2.4600246002vw , 5.625rem );
+      heigth: clamp( 3.125rem , 2.63299508rem  +  2.4600246002vw , 4.375rem );
     }
 }
 
-@supports not (heigth: clamp( 4.375rem , 3.88299508rem  +  2.4600246002vw , 5.625rem )) {
+@supports not (heigth: clamp( 3.125rem , 2.63299508rem  +  2.4600246002vw , 4.375rem )) {
     .header__logo img {
-      heigth: calc(4.375rem + 1.25 * (100vw - 20rem) / 50.8125);
+      heigth: calc(3.125rem + 1.25 * (100vw - 20rem) / 50.8125);
     }
 }
 
@@ -2719,7 +2743,7 @@ button.swiper-pagination-bullet {
     background: #428bca;
   }
 
-  .text:hover {
+  .link:hover {
     color: #ffc937;
   }
 
