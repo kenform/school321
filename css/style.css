@@ -104,9 +104,8 @@ h6 {
   font-size: inherit;
 }
 
-body {
-  background: url("../img/bg.jpg") repeat center/cover;
-}
+.no-webp body{
+  background: url("../img/bg.jpg") repeat center/cover; }
 
 .lock body {
   overflow: hidden;
@@ -2763,3 +2762,5 @@ button.swiper-pagination-bullet {
     cursor: default;
   }
 }
+
+.webp body{ background: url(../img/bg.webp) repeat center/cover; }
