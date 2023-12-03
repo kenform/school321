@@ -38,7 +38,7 @@ body {
 body {
   color: #000;
   line-height: 1;
-  font-family: "Helvetica";
+  font-family: "HelveticaNeue";
   font-size: 0.875rem;
   -ms-text-size-adjust: 100%;
   -moz-text-size-adjust: 100%;
@@ -50,7 +50,7 @@ body {
 input,
 button,
 textarea {
-  font-family: "Helvetica";
+  font-family: "HelveticaNeue";
   font-size: inherit;
   line-height: inherit;
 }
@@ -339,10 +339,6 @@ body::after {
   gap: 15px;
 }
 
-.spollers__item {
-  font-size: 1.25rem;
-}
-
 .spollers__title {
   width: 100%;
   cursor: pointer;
@@ -435,6 +431,7 @@ body::after {
 }
 
 .spollers__body {
+  margin-top: 0.625rem;
   border: 1px solid #ffe192;
   background: #ffe192;
   display: -ms-grid;
@@ -491,7 +488,6 @@ body::after {
 }
 
 .header {
-  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
@@ -545,6 +541,13 @@ body::after {
   gap: 25px;
 }
 
+.menu__body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 30px;
+}
+
 .menu__list {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -588,6 +591,174 @@ body::after {
   display: none;
 }
 
+/* this is a recreation of twitter search in css */
+
+.form {
+  --input-text-color: #fff;
+  --input-bg-color: #283542;
+  --focus-input-bg-color: transparent;
+  --text-color: #ffc937;
+  --active-color: #ffc937;
+  --width-of-input: 200px;
+  --inline-padding-of-input: 1.2em;
+  --gap: 0.9rem;
+}
+
+/* form style */
+
+.form {
+  font-size: 0.9rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 0.5rem;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: var(--width-of-input);
+  position: relative;
+  isolation: isolate;
+}
+
+/* a fancy bg for showing background and border when focus. */
+
+.fancy-bg {
+  position: absolute;
+  width: 100%;
+  inset: 0;
+  background: var(--input-bg-color);
+  border-radius: 30px;
+  height: 100%;
+  z-index: -1;
+  pointer-events: none;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+          box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+
+/* label styling */
+
+label {
+  width: 100%;
+  padding: 0.8em;
+  height: 40px;
+  padding-inline: var(--inline-padding-of-input);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.search,
+.close-btn {
+  position: absolute;
+}
+
+/* styling search-icon */
+
+.search {
+  fill: var(--text-color);
+  left: var(--inline-padding-of-input);
+}
+
+/* svg -- size */
+
+svg {
+  width: 17px;
+  display: block;
+}
+
+/* styling of close button */
+
+.close-btn {
+  border: none;
+  right: var(--inline-padding-of-input);
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  color: #fff;
+  padding: 0.1em;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--active-color);
+  opacity: 0;
+  visibility: hidden;
+}
+
+/* styling of input */
+
+.input {
+  color: var(--input-text-color);
+  width: 100%;
+  margin-inline: min(2em, var(--inline-padding-of-input) + var(--gap));
+  background: none;
+  border: none;
+}
+
+.input:focus {
+  outline: none;
+}
+
+.input::-webkit-input-placeholder {
+  color: var(--text-color);
+}
+
+.input::-moz-placeholder {
+  color: var(--text-color);
+}
+
+.input:-ms-input-placeholder {
+  color: var(--text-color);
+}
+
+.input::-ms-input-placeholder {
+  color: var(--text-color);
+}
+
+.input::placeholder {
+  color: var(--text-color);
+}
+
+/* input background change in focus */
+
+.input:focus ~ .fancy-bg {
+  border: 1px solid var(--active-color);
+  background: var(--focus-input-bg-color);
+}
+
+/* search icon color change in focus */
+
+.input:focus ~ .search {
+  fill: var(--active-color);
+}
+
+/* showing close button when typing */
+
+.input:valid ~ .close-btn {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* this is for the default background in input,when selecting autofill options -- you can remove this code if you do not want to override the browser style.  */
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-transition: "color 9999s ease-out, background-color 9999s ease-out";
+  -webkit-transition-delay: 9999s;
+}
+
 .menu-page__title {
   padding-bottom: 0;
   text-transform: uppercase;
@@ -604,6 +775,9 @@ body::after {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   gap: 20px;
 }
 
@@ -687,7 +861,7 @@ body::after {
 }
 
 .submenu-page__item {
-  padding: 0.625rem 1.25rem 0.625rem 1.875rem;
+  padding: 0.625rem;
   background: #ffe192;
   display: block;
   color: #000000;
@@ -701,7 +875,7 @@ body::after {
 }
 
 .footer {
-  background-color: #000;
+  background-color: #28292b;
 }
 
 .footer__body {
@@ -771,6 +945,38 @@ body::after {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+}
+
+.breadcrumbs {
+  color: #000;
+  font-size: 0.001px;
+  list-style: outside none;
+  background-color: #f5f5f5;
+  border-radius: 5px;
+  padding: 1rem 2rem;
+  width: 50%;
+  margin: 2rem auto;
+  border: 1px solid #00f;
+}
+
+.breadcrumbs li {
+  font-size: 1.2rem;
+  vertical-align: top;
+}
+
+.breadcrumbs li > a,
+.breadcrumbs li > span,
+.breadcrumbs li {
+  display: inline-block;
+}
+
+.breadcrumbs li > a {
+  color: #07d;
+  text-decoration: none;
+}
+
+.breadcrumbs li > a:hover {
+  text-decoration: underline;
 }
 
 .swiper {
@@ -1628,10 +1834,6 @@ button.swiper-pagination-bullet {
 }
 
 @media (min-width: 47.99875em) {
-  .menu__body {
-    padding-right: 10px;
-  }
-
   .footer__body {
     -ms-flex-pack: distribute;
         justify-content: space-around;
@@ -1683,6 +1885,10 @@ button.swiper-pagination-bullet {
     height: 3.125rem;
   }
 
+  .spollers__item {
+    font-size: 1.125rem;
+  }
+
   .text {
     font-size: 2rem;
   }
@@ -1721,10 +1927,6 @@ button.swiper-pagination-bullet {
             column-gap: 2.1875rem;
   }
 
-  .menu-page__body {
-    padding-top: 3.125rem;
-  }
-
   .menu-page__link {
     font-size: 1.125rem;
   }
@@ -1751,10 +1953,6 @@ button.swiper-pagination-bullet {
 
   .footer__copyright {
     font-size: 1rem;
-  }
-
-  .page__side {
-    padding-top: 5rem;
   }
 
   .page__body {
@@ -1795,6 +1993,10 @@ button.swiper-pagination-bullet {
     height: 1.875rem;
   }
 
+  .spollers__item {
+    font-size: 0.875rem;
+  }
+
   .text {
     font-size: 1.5rem;
   }
@@ -1833,10 +2035,6 @@ button.swiper-pagination-bullet {
             column-gap: 0.9375rem;
   }
 
-  .menu-page__body {
-    padding-top: 1.875rem;
-  }
-
   .menu-page__link {
     font-size: 0.75rem;
   }
@@ -1850,7 +2048,7 @@ button.swiper-pagination-bullet {
   }
 
   .submenu-page__item {
-    font-size: 0.75rem;
+    font-size: 1rem;
   }
 
   .footer__container {
@@ -1865,10 +2063,6 @@ button.swiper-pagination-bullet {
     font-size: 0.875rem;
   }
 
-  .page__side {
-    padding-top: 5rem;
-  }
-
   .page__body {
     padding-bottom: 5rem;
   }
@@ -1879,6 +2073,12 @@ button.swiper-pagination-bullet {
 }
 
 @media (max-width: 61.99875em) {
+  .header__logo {
+    -webkit-box-flex: 0;
+        -ms-flex: 0 0 290px;
+            flex: 0 0 290px;
+  }
+
   .menu-page__body {
     text-align: center;
   }
@@ -1900,6 +2100,15 @@ button.swiper-pagination-bullet {
 @media (max-width: 47.99875em) {
   .button {
     padding: 1.875rem 4.0625rem;
+  }
+
+  .spollers__title {
+    max-width: 200px;
+  }
+
+  ._spoller-init .spollers__title::before,
+  ._spoller-init .spollers__title::after {
+    height: 2px;
   }
 
   .menu {
@@ -1955,6 +2164,9 @@ button.swiper-pagination-bullet {
   }
 
   .menu__list {
+    -webkit-box-ordinal-group: 0;
+        -ms-flex-order: -1;
+            order: -1;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
@@ -2046,7 +2258,7 @@ button.swiper-pagination-bullet {
 
 @media (max-width: 47.99875em) and (max-width: 0.125em) {
   .menu__body {
-    padding-top: 7.5rem;
+    padding-top: 8.125rem;
   }
 }
 
@@ -2146,6 +2358,18 @@ button.swiper-pagination-bullet {
 @supports not (height: clamp( 1.875rem , 1.38299508rem  +  2.4600246002vw , 3.125rem )) {
     .popup__close span {
       height: calc(1.875rem + 1.25 * (100vw - 20rem) / 50.8125);
+    }
+}
+
+@supports (font-size: clamp( 0.875rem , 0.776599016rem  +  0.49200492vw , 1.125rem )) {
+    .spollers__item {
+      font-size: clamp( 0.875rem , 0.776599016rem  +  0.49200492vw , 1.125rem );
+    }
+}
+
+@supports not (font-size: clamp( 0.875rem , 0.776599016rem  +  0.49200492vw , 1.125rem )) {
+    .spollers__item {
+      font-size: calc(0.875rem + 0.25 * (100vw - 20rem) / 50.8125);
     }
 }
 
@@ -2261,18 +2485,6 @@ button.swiper-pagination-bullet {
     }
 }
 
-@supports (padding-top: clamp( 1.875rem , 1.38299508rem  +  2.4600246002vw , 3.125rem )) {
-    .menu-page__body {
-      padding-top: clamp( 1.875rem , 1.38299508rem  +  2.4600246002vw , 3.125rem );
-    }
-}
-
-@supports not (padding-top: clamp( 1.875rem , 1.38299508rem  +  2.4600246002vw , 3.125rem )) {
-    .menu-page__body {
-      padding-top: calc(1.875rem + 1.25 * (100vw - 20rem) / 50.8125);
-    }
-}
-
 @supports (font-size: clamp( 0.75rem , 0.602398524rem  +  0.7380073801vw , 1.125rem )) {
     .menu-page__link {
       font-size: clamp( 0.75rem , 0.602398524rem  +  0.7380073801vw , 1.125rem );
@@ -2309,15 +2521,15 @@ button.swiper-pagination-bullet {
     }
 }
 
-@supports (font-size: clamp( 0.75rem , 0.602398524rem  +  0.7380073801vw , 1.125rem )) {
+@supports (font-size: clamp( 1rem , 0.950799508rem  +  0.24600246vw , 1.125rem )) {
     .submenu-page__item {
-      font-size: clamp( 0.75rem , 0.602398524rem  +  0.7380073801vw , 1.125rem );
+      font-size: clamp( 1rem , 0.950799508rem  +  0.24600246vw , 1.125rem );
     }
 }
 
-@supports not (font-size: clamp( 0.75rem , 0.602398524rem  +  0.7380073801vw , 1.125rem )) {
+@supports not (font-size: clamp( 1rem , 0.950799508rem  +  0.24600246vw , 1.125rem )) {
     .submenu-page__item {
-      font-size: calc(0.75rem + 0.375 * (100vw - 20rem) / 50.8125);
+      font-size: calc(1rem + 0.125 * (100vw - 20rem) / 50.8125);
     }
 }
 
@@ -2357,18 +2569,6 @@ button.swiper-pagination-bullet {
     }
 }
 
-@supports (padding-top: clamp( 5rem , 5rem  +  0vw , 5rem )) {
-    .page__side {
-      padding-top: clamp( 5rem , 5rem  +  0vw , 5rem );
-    }
-}
-
-@supports not (padding-top: clamp( 5rem , 5rem  +  0vw , 5rem )) {
-    .page__side {
-      padding-top: calc(5rem + 0 * (100vw - 20rem) / 50.8125);
-    }
-}
-
 @supports (padding-bottom: clamp( 5rem , 4.0159901599rem  +  4.9200492005vw , 7.5rem )) {
     .page__body {
       padding-bottom: clamp( 5rem , 4.0159901599rem  +  4.9200492005vw , 7.5rem );
@@ -2396,20 +2596,20 @@ button.swiper-pagination-bullet {
 
 @media (max-width: 47.99875em) and (min-width: 20em) {
   .menu__body {
-    padding-top: 8.75rem;
+    padding-top: 10rem;
   }
 }
 
 @media (max-width: 47.99875em) and (min-width: 0.125em) and (max-width: 20em) {
-@supports (padding-top: clamp( 7.5rem , 7.4921383648rem  +  6.2893081761vw , 8.75rem )) {
+@supports (padding-top: clamp( 8.125rem , 8.1132075472rem  +  9.4339622642vw , 10rem )) {
     .menu__body {
-      padding-top: clamp( 7.5rem , 7.4921383648rem  +  6.2893081761vw , 8.75rem );
+      padding-top: clamp( 8.125rem , 8.1132075472rem  +  9.4339622642vw , 10rem );
     }
 }
 
-@supports not (padding-top: clamp( 7.5rem , 7.4921383648rem  +  6.2893081761vw , 8.75rem )) {
+@supports not (padding-top: clamp( 8.125rem , 8.1132075472rem  +  9.4339622642vw , 10rem )) {
     .menu__body {
-      padding-top: calc(7.5rem + 1.25 * (100vw - 0.125rem) / 19.875);
+      padding-top: calc(8.125rem + 1.875 * (100vw - 0.125rem) / 19.875);
     }
 }
 }
