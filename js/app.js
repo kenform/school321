@@ -150,24 +150,27 @@
             }
             function initSpollerBody(spollersBlock, hideSpollerBody = true) {
                 let spollerItems = spollersBlock.querySelectorAll("details");
-                if (spollerItems.length) spollerItems.forEach((spollerItem => {
-                    let spollerTitle = spollerItem.querySelector("summary");
-                    if (hideSpollerBody) {
-                        spollerTitle.removeAttribute("tabindex");
-                        if (!spollerItem.hasAttribute("data-open")) {
-                            spollerItem.open = false;
-                            spollerTitle.nextElementSibling.hidden = true;
+                if (spollerItems.length) {
+                    spollerItems = Array.from(spollerItems).filter((item => item.closest("[data-spollers]") === spollersBlock));
+                    spollerItems.forEach((spollerItem => {
+                        let spollerTitle = spollerItem.querySelector("summary");
+                        if (hideSpollerBody) {
+                            spollerTitle.removeAttribute("tabindex");
+                            if (!spollerItem.hasAttribute("data-open")) {
+                                spollerItem.open = false;
+                                spollerTitle.nextElementSibling.hidden = true;
+                            } else {
+                                spollerTitle.classList.add("_spoller-active");
+                                spollerItem.open = true;
+                            }
                         } else {
-                            spollerTitle.classList.add("_spoller-active");
+                            spollerTitle.setAttribute("tabindex", "-1");
+                            spollerTitle.classList.remove("_spoller-active");
                             spollerItem.open = true;
+                            spollerTitle.nextElementSibling.hidden = false;
                         }
-                    } else {
-                        spollerTitle.setAttribute("tabindex", "-1");
-                        spollerTitle.classList.remove("_spoller-active");
-                        spollerItem.open = true;
-                        spollerTitle.nextElementSibling.hidden = false;
-                    }
-                }));
+                    }));
+                }
             }
             function setSpollerAction(e) {
                 const el = e.target;
