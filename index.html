@@ -6,7 +6,7 @@
 	<meta charset="UTF-8">
 	<meta name="format-detection" content="telephone=no">
 	<!-- <style>body{opacity: 0;}</style> -->
-	<link rel="stylesheet" href="css/style.min.css?_v=20231214105738">
+	<link rel="stylesheet" href="css/style.min.css?_v=20231217222525">
 	<link rel="shortcut icon" href="favicon.ico">
 	<!-- <meta name="robots" content="noindex, nofollow"> -->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -45,7 +45,7 @@
 					<div class="menu-page__body">
 						<ul class="menu-page__list">
 							<div class="menu-page__list__item">
-								<a href="/" class="menu-page__link">
+								<a href="buling.html" class="menu-page__link">
 									<li>Головна сторінка</li>
 								</a>
 							</div>
@@ -354,67 +354,63 @@
 
 				<div class="main-block__content">
 					<div class="main-block__info info-main">
-						<div class="info-main__text text link underline">
-							<a href="http://zakon3.rada.gov.ua/laws/show/2145-19">
-								<p>1. Закон України "Про освіту"</p>
-							</a>
+						<div class="info-main__text text">
+							<p>Школа I-III ступенів №147 Деснянського району міста Києва</p>
 						</div>
-						<div class="info-main__text text link underline">
-							<a href="#">
-								<p>Стаття 30 Закону України "Про освіту"</p>
-							</a>
+						<div class="info-main__text black-text justify">
+							<p>
+								Школа I-III ступенів №147 введена в дію в 1971 році на підставі рішення
+								виконавчого комітету Київської міської ради народних депутатів "Про введення в
+								експлуатацію шкіл - новобудов", знаходиться в комунальній власності. Школа I-III
+								ступенів №147 є юридичною особою (довідка АБ №517357 з ЄДРПОУ від 08.10.2012 р.),
+								має Статут закладу (затверджено розпорядженням Деснянської районної в місті Києві
+								державної адміністрації №613 від 20.10.2016 р.), рахунок в установі банку,
+								печатку, штамп, ідентифікаційний код 03875070.
+							</p>
+						</div>
+						<div class="info-main__text black-text justify">
+							<p>
+								Педагогічний та учнівський колективи пишаються своїми традиціями та результатами
+								праці. Основні форми діяльності школи:
+							</p>
+							<p>
+								- формування та розвиток соціально-зрілої, творчої особистості з почуттям
+								національної самосвідомості, готової до професійного самовизначення;
+							</p>
+							<p>- забезпечення умов для реалізації учнями індивідуальних творчих потреб;</p>
+							<p>- здійснення науково</p>
+							<p>- практичної підготовки учнів;</p>
+							<p>
+								- виховання морально та фізично здорового покоління, формування у школярів
+								громадянської позиції і власної гідності.
+							</p>
+						</div>
+
+						<div class="info-main__text black-text justify">
+							<p>Сьогодні школа I-III ступенів №147:</p>
+							<p>
+								• Це педагогічний колектив у складі 37 вчителів, з яких відмінників освіти - 1,
+								учителів-методистів - 3, старших учителів - 9, вищої категорії - 24, I категорії -
+								3, IІ категорії - 1, спеціальність - 4.
+							</p>
+							<p>
+								• Це учнівський колектив, який нараховує 437 учнів, які навчаються у класах
+								початкової школи та класах середньої та старшої ланки.
+							</p>
+							<p>
+								• Це осередок науково - педагогічного проекту експериментальної роботи за
+								програмою «Росток (для учнів початкової та середньої Школи).
+							</p>
+							<p>• Це заклад освіти, де починалось випровадження "Нової української школи".</p>
+							<p>
+								• Це центр творчої самореалізації особистості та педагогіки успіху (дитяча
+								організація «ШАНС», шкільне наукове товариство МАН «Дослідник», шкільна газета
+								«Зорепад», гуртки та секції за різними напрямками).
+							</p>
 						</div>
 					</div>
 				</div>
 			</div>
-			<script>
-				var input, search, pr, result, result_arr, locale_HTML, result_store;
-
-				locale_HTML = document.body.innerHTML; // сохраняем в переменную весь body (Исходный)
-
-				function FindOnPage(name, status) {
-					input = document.getElementById(name).value; //получаем значение из поля в html
-
-					if (input.length < 3 && status == true) {
-						alert('Для поиска вы должны ввести три или более символов');
-
-						function FindOnPageBack() {
-							document.body.innerHTML = locale_HTML;
-						} //обнуляем стили
-					}
-
-					if (input.length >= 3) {
-						function FindOnPageGo() {
-							search = '/' + input + '/g'; //делаем из строки регуярное выражение
-							pr = document.body.innerHTML; // сохраняем в переменную весь body
-							result = pr.match(/>(.*?)</g); //отсекаем все теги и получаем только текст
-							result_arr = []; //в этом массиве будем хранить результат работы (подсветку)
-
-							for (var i = 0; i < result.length; i++) {
-								result_arr[i] = result[i].replace(
-									eval(search),
-									'<span style="background-color:yellow;">' + input + '</span>',
-								); //находим нужные элементы, задаем стиль и сохраняем в новый массив
-							}
-							for (var i = 0; i < result.length; i++) {
-								pr = pr.replace(result[i], result_arr[i]); //заменяем в переменной с html текст на новый из новогом ассива
-							}
-							document.body.innerHTML = pr; //заменяем html код
-						}
-					}
-
-					function FindOnPageBack() {
-						document.body.innerHTML = locale_HTML;
-					} //обнуляем стили
-					if (status) {
-						FindOnPageBack();
-						FindOnPageGo();
-					} //чистим прошлое и Выделяем найденное
-					if (!status) {
-						FindOnPageBack();
-					} //Снимаем выделение
-				}
-			</script>
 		</main>
 		<footer class="footer">
 			<div class="footer__container">
@@ -432,7 +428,7 @@
 		</footer>
 
 	</div>
-	<script src="js/app.min.js?_v=20231214105738"></script>
+	<script src="js/app.min.js?_v=20231217222525"></script>
 </body>
 
 </html>
