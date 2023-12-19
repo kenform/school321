@@ -355,33 +355,6 @@ body::after {
   cursor: pointer;
 }
 
-._spoller-init .spollers__title::before,
-._spoller-init .spollers__title::after {
-  content: "";
-  position: absolute;
-  right: -15px;
-  top: 25%;
-  background-color: #000;
-  height: 3px;
-  width: 20px;
-  -webkit-transition: -webkit-transform 0.5s ease 0s;
-  transition: -webkit-transform 0.5s ease 0s;
-  transition: transform 0.5s ease 0s;
-  transition: transform 0.5s ease 0s, -webkit-transform 0.5s ease 0s;
-}
-
-._spoller-init .spollers__title::before {
-  -webkit-transform: translate(0%, -50%) rotate(90deg);
-      -ms-transform: translate(0%, -50%) rotate(90deg);
-          transform: translate(0%, -50%) rotate(90deg);
-}
-
-._spoller-init .spollers__title::after {
-  -webkit-transform: translate(0, -50%) rotate(360deg);
-      -ms-transform: translate(0, -50%) rotate(360deg);
-          transform: translate(0, -50%) rotate(360deg);
-}
-
 ._spoller-init .spollers__title._spoller-active::before {
   -webkit-transform: translateX(-75%) rotate(360deg);
       -ms-transform: translateX(-75%) rotate(360deg);
@@ -398,31 +371,6 @@ body::after {
   margin-bottom: 15px;
 }
 
-._spoller-init ._spoller-init .spollers__title::before,
-._spoller-init ._spoller-init .spollers__title::after {
-  content: "";
-  position: absolute;
-  right: 0;
-  top: 0.75rem;
-  height: 0.0625rem;
-  -webkit-transition: all 0.3s ease 0s;
-  transition: all 0.3s ease 0s;
-  width: 0.625rem;
-  background-color: #000;
-}
-
-._spoller-init ._spoller-init .spollers__title::before {
-  -webkit-transform: rotate(40deg);
-      -ms-transform: rotate(40deg);
-          transform: rotate(40deg);
-}
-
-._spoller-init ._spoller-init .spollers__title::after {
-  -webkit-transform: rotate(-40deg);
-      -ms-transform: rotate(-40deg);
-          transform: rotate(-40deg);
-}
-
 ._spoller-init .spollers__title._spoller-active::before {
   height: 1px;
   -webkit-transform: rotate(360deg);
@@ -436,6 +384,12 @@ body::after {
   background: #ffe192;
   display: -ms-grid;
   display: grid;
+}
+
+.cross {
+  position: absolute;
+  right: -20px;
+  top: -50px;
 }
 
 .menu__item {
@@ -2257,11 +2211,6 @@ button.swiper-pagination-bullet {
 
   .spollers__title {
     max-width: 200px;
-  }
-
-  ._spoller-init .spollers__title::before,
-  ._spoller-init .spollers__title::after {
-    height: 2px;
   }
 
   .menu {
